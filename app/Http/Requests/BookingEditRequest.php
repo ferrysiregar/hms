@@ -1,0 +1,58 @@
+<?php
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class BookingEditRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+		
+        return [
+            
+				"customers_id" => "filled",
+				"agent_id" => "filled",
+				"checkin_date" => "filled|date",
+				"checkin_time" => "filled",
+				"checkout_date" => "filled|date",
+				"checkout_time" => "filled",
+				"payment_status_id" => "filled",
+            
+        ];
+    }
+
+	public function messages()
+    {
+        return [
+			
+            //using laravel default validation messages
+        ];
+    }
+
+    /**
+     *  Filters to be applied to the input.
+     *
+     * @return array
+     */
+    public function filters()
+    {
+        return [
+            //eg = 'name' => 'trim|capitalize|escape'
+        ];
+    }
+}
