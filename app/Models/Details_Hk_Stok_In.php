@@ -48,8 +48,8 @@ class Details_Hk_Stok_In extends Model
 	public static function search($query, $text){
 		//search table record 
 		$search_condition = '(
-				code_dethk_stokin LIKE ?  OR 
-				item LIKE ? 
+				details_hk_stok_in.code_dethk_stokin LIKE ?  OR 
+				details_hk_stok_in.item LIKE ? 
 		)';
 		$search_params = [
 			"%$text%","%$text%"
@@ -66,12 +66,14 @@ class Details_Hk_Stok_In extends Model
      */
 	public static function listFields(){
 		return [ 
-			"id",
-			"code_dethk_stokin",
-			"item",
-			"qty",
-			"conditions",
-			"locations" 
+			"details_hk_stok_in.id AS id",
+			"details_hk_stok_in.code_dethk_stokin AS code_dethk_stokin",
+			"details_hk_stok_in.item AS item",
+			"details_hk_stok_in.qty AS qty",
+			"details_hk_stok_in.conditions AS conditions",
+			"conditions.conditions_name AS conditions_conditions_name",
+			"details_hk_stok_in.locations AS locations",
+			"locations.locations_name AS locations_locations_name" 
 		];
 	}
 	
@@ -83,12 +85,14 @@ class Details_Hk_Stok_In extends Model
      */
 	public static function exportListFields(){
 		return [ 
-			"id",
-			"code_dethk_stokin",
-			"item",
-			"qty",
-			"conditions",
-			"locations" 
+			"details_hk_stok_in.id AS id",
+			"details_hk_stok_in.code_dethk_stokin AS code_dethk_stokin",
+			"details_hk_stok_in.item AS item",
+			"details_hk_stok_in.qty AS qty",
+			"details_hk_stok_in.conditions AS conditions",
+			"conditions.conditions_name AS conditions_conditions_name",
+			"details_hk_stok_in.locations AS locations",
+			"locations.locations_name AS locations_locations_name" 
 		];
 	}
 	

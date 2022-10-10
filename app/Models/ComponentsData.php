@@ -175,6 +175,68 @@ class ComponentsData{
 	
 
 	/**
+     * items_name_option_list Model Action
+     * @return array
+     */
+	function items_name_option_list(){
+		$sqltext = "SELECT  DISTINCT code_purchase_items AS value,items_name AS label FROM purchase_items";
+		$query_params = [];
+		$arr = DB::select(DB::raw($sqltext), $query_params);
+		return $arr;
+	}
+	
+
+	/**
+     * units_option_list Model Action
+     * @return array
+     */
+	function units_option_list($value = null){
+		$lookup_value = request()->lookup ?? $value;
+		$sqltext = "SELECT  DISTINCT code_purchase_items AS value,units AS label FROM purchase_items WHERE items_name=:lookup_items_name" ;
+		$query_params = [];
+		$query_params['lookup_items_name'] = $lookup_value;
+		$arr = DB::select(DB::raw($sqltext), $query_params);
+		return $arr;
+	}
+	
+
+	/**
+     * department_option_list Model Action
+     * @return array
+     */
+	function department_option_list(){
+		$sqltext = "SELECT  DISTINCT id AS value,department_name AS label FROM department";
+		$query_params = [];
+		$arr = DB::select(DB::raw($sqltext), $query_params);
+		return $arr;
+	}
+	
+
+	/**
+     * job_title_option_list Model Action
+     * @return array
+     */
+	function job_title_option_list(){
+		$sqltext = "SELECT  DISTINCT id AS value,job_title_name AS label FROM job_title";
+		$query_params = [];
+		$arr = DB::select(DB::raw($sqltext), $query_params);
+		return $arr;
+	}
+	
+
+	/**
+     * contract_status_option_list Model Action
+     * @return array
+     */
+	function contract_status_option_list(){
+		$sqltext = "SELECT  DISTINCT id AS value,contract_status_name AS label FROM contract_status";
+		$query_params = [];
+		$arr = DB::select(DB::raw($sqltext), $query_params);
+		return $arr;
+	}
+	
+
+	/**
      * permission_id_option_list Model Action
      * @return array
      */
@@ -300,6 +362,18 @@ class ComponentsData{
      */
 	function floor_id_option_list(){
 		$sqltext = "SELECT  DISTINCT id AS value,floor AS label FROM room_floor";
+		$query_params = [];
+		$arr = DB::select(DB::raw($sqltext), $query_params);
+		return $arr;
+	}
+	
+
+	/**
+     * supplier_option_list Model Action
+     * @return array
+     */
+	function supplier_option_list(){
+		$sqltext = "SELECT  DISTINCT code_supplier AS value,name_supplier AS label FROM supplier";
 		$query_params = [];
 		$arr = DB::select(DB::raw($sqltext), $query_params);
 		return $arr;

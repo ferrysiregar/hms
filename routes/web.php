@@ -58,6 +58,17 @@ use Illuminate\Support\Facades\Mail;
 	Route::any('conditions/edit/{rec_id}', 'ConditionsController@edit')->name('conditions.edit');	
 	Route::get('conditions/delete/{rec_id}', 'ConditionsController@delete');
 
+/* routes for Contract_Status Controller */	
+	Route::get('contract_status', 'Contract_StatusController@index')->name('contract_status.index');
+	Route::get('contract_status/index', 'Contract_StatusController@index')->name('contract_status.index');
+	Route::get('contract_status/index/{filter?}/{filtervalue?}', 'Contract_StatusController@index')->name('contract_status.index');	
+	Route::get('contract_status/view/{rec_id}', 'Contract_StatusController@view')->name('contract_status.view');	
+	Route::get('contract_status/add', 'Contract_StatusController@add')->name('contract_status.add');
+	Route::post('contract_status/store', 'Contract_StatusController@store')->name('contract_status.store');
+		
+	Route::any('contract_status/edit/{rec_id}', 'Contract_StatusController@edit')->name('contract_status.edit');	
+	Route::get('contract_status/delete/{rec_id}', 'Contract_StatusController@delete');
+
 /* routes for Customers Controller */	
 	Route::get('customers', 'CustomersController@index')->name('customers.index');
 	Route::get('customers/index', 'CustomersController@index')->name('customers.index');
@@ -69,6 +80,17 @@ use Illuminate\Support\Facades\Mail;
 		
 	Route::any('customers/edit/{rec_id}', 'CustomersController@edit')->name('customers.edit');	
 	Route::get('customers/delete/{rec_id}', 'CustomersController@delete');
+
+/* routes for Department Controller */	
+	Route::get('department', 'DepartmentController@index')->name('department.index');
+	Route::get('department/index', 'DepartmentController@index')->name('department.index');
+	Route::get('department/index/{filter?}/{filtervalue?}', 'DepartmentController@index')->name('department.index');	
+	Route::get('department/view/{rec_id}', 'DepartmentController@view')->name('department.view');	
+	Route::get('department/add', 'DepartmentController@add')->name('department.add');
+	Route::post('department/store', 'DepartmentController@store')->name('department.store');
+		
+	Route::any('department/edit/{rec_id}', 'DepartmentController@edit')->name('department.edit');	
+	Route::get('department/delete/{rec_id}', 'DepartmentController@delete');
 
 /* routes for Details_Booking Controller */	
 	Route::get('details_booking', 'Details_BookingController@index')->name('details_booking.index');
@@ -91,6 +113,17 @@ use Illuminate\Support\Facades\Mail;
 		
 	Route::any('details_hk_stok_in/edit/{rec_id}', 'Details_Hk_Stok_InController@edit')->name('details_hk_stok_in.edit');	
 	Route::get('details_hk_stok_in/delete/{rec_id}', 'Details_Hk_Stok_InController@delete');
+
+/* routes for Details_Hk_Stok_Out Controller */	
+	Route::get('details_hk_stok_out', 'Details_Hk_Stok_OutController@index')->name('details_hk_stok_out.index');
+	Route::get('details_hk_stok_out/index', 'Details_Hk_Stok_OutController@index')->name('details_hk_stok_out.index');
+	Route::get('details_hk_stok_out/index/{filter?}/{filtervalue?}', 'Details_Hk_Stok_OutController@index')->name('details_hk_stok_out.index');	
+	Route::get('details_hk_stok_out/view/{rec_id}', 'Details_Hk_Stok_OutController@view')->name('details_hk_stok_out.view');	
+	Route::get('details_hk_stok_out/add', 'Details_Hk_Stok_OutController@add')->name('details_hk_stok_out.add');
+	Route::post('details_hk_stok_out/store', 'Details_Hk_Stok_OutController@store')->name('details_hk_stok_out.store');
+		
+	Route::any('details_hk_stok_out/edit/{rec_id}', 'Details_Hk_Stok_OutController@edit')->name('details_hk_stok_out.edit');	
+	Route::get('details_hk_stok_out/delete/{rec_id}', 'Details_Hk_Stok_OutController@delete');
 
 /* routes for Details_Menu_Order Controller */	
 	Route::get('details_menu_order', 'Details_Menu_OrderController@index')->name('details_menu_order.index');
@@ -125,6 +158,28 @@ use Illuminate\Support\Facades\Mail;
 	Route::any('details_transaction/edit/{rec_id}', 'Details_TransactionController@edit')->name('details_transaction.edit');	
 	Route::get('details_transaction/delete/{rec_id}', 'Details_TransactionController@delete');
 
+/* routes for Detils_Purchase_Order Controller */	
+	Route::get('detils_purchase_order', 'Detils_Purchase_OrderController@index')->name('detils_purchase_order.index');
+	Route::get('detils_purchase_order/index', 'Detils_Purchase_OrderController@index')->name('detils_purchase_order.index');
+	Route::get('detils_purchase_order/index/{filter?}/{filtervalue?}', 'Detils_Purchase_OrderController@index')->name('detils_purchase_order.index');	
+	Route::get('detils_purchase_order/view/{rec_id}', 'Detils_Purchase_OrderController@view')->name('detils_purchase_order.view');	
+	Route::get('detils_purchase_order/add', 'Detils_Purchase_OrderController@add')->name('detils_purchase_order.add');
+	Route::post('detils_purchase_order/store', 'Detils_Purchase_OrderController@store')->name('detils_purchase_order.store');
+		
+	Route::any('detils_purchase_order/edit/{rec_id}', 'Detils_Purchase_OrderController@edit')->name('detils_purchase_order.edit');	
+	Route::get('detils_purchase_order/delete/{rec_id}', 'Detils_Purchase_OrderController@delete');
+
+/* routes for Employee Controller */	
+	Route::get('employee', 'EmployeeController@index')->name('employee.index');
+	Route::get('employee/index', 'EmployeeController@index')->name('employee.index');
+	Route::get('employee/index/{filter?}/{filtervalue?}', 'EmployeeController@index')->name('employee.index');	
+	Route::get('employee/view/{rec_id}', 'EmployeeController@view')->name('employee.view');	
+	Route::get('employee/add', 'EmployeeController@add')->name('employee.add');
+	Route::post('employee/store', 'EmployeeController@store')->name('employee.store');
+		
+	Route::any('employee/edit/{rec_id}', 'EmployeeController@edit')->name('employee.edit');	
+	Route::get('employee/delete/{rec_id}', 'EmployeeController@delete');
+
 /* routes for Hk_Stok Controller */	
 	Route::get('hk_stok', 'Hk_StokController@index')->name('hk_stok.index');
 	Route::get('hk_stok/index', 'Hk_StokController@index')->name('hk_stok.index');
@@ -146,6 +201,28 @@ use Illuminate\Support\Facades\Mail;
 		
 	Route::any('hk_stok_in/edit/{rec_id}', 'Hk_Stok_InController@edit')->name('hk_stok_in.edit');	
 	Route::get('hk_stok_in/delete/{rec_id}', 'Hk_Stok_InController@delete');
+
+/* routes for Hk_Stok_Out Controller */	
+	Route::get('hk_stok_out', 'Hk_Stok_OutController@index')->name('hk_stok_out.index');
+	Route::get('hk_stok_out/index', 'Hk_Stok_OutController@index')->name('hk_stok_out.index');
+	Route::get('hk_stok_out/index/{filter?}/{filtervalue?}', 'Hk_Stok_OutController@index')->name('hk_stok_out.index');	
+	Route::get('hk_stok_out/view/{rec_id}', 'Hk_Stok_OutController@view')->name('hk_stok_out.view');	
+	Route::get('hk_stok_out/add', 'Hk_Stok_OutController@add')->name('hk_stok_out.add');
+	Route::post('hk_stok_out/store', 'Hk_Stok_OutController@store')->name('hk_stok_out.store');
+		
+	Route::any('hk_stok_out/edit/{rec_id}', 'Hk_Stok_OutController@edit')->name('hk_stok_out.edit');	
+	Route::get('hk_stok_out/delete/{rec_id}', 'Hk_Stok_OutController@delete');
+
+/* routes for Job_Title Controller */	
+	Route::get('job_title', 'Job_TitleController@index')->name('job_title.index');
+	Route::get('job_title/index', 'Job_TitleController@index')->name('job_title.index');
+	Route::get('job_title/index/{filter?}/{filtervalue?}', 'Job_TitleController@index')->name('job_title.index');	
+	Route::get('job_title/view/{rec_id}', 'Job_TitleController@view')->name('job_title.view');	
+	Route::get('job_title/add', 'Job_TitleController@add')->name('job_title.add');
+	Route::post('job_title/store', 'Job_TitleController@store')->name('job_title.store');
+		
+	Route::any('job_title/edit/{rec_id}', 'Job_TitleController@edit')->name('job_title.edit');	
+	Route::get('job_title/delete/{rec_id}', 'Job_TitleController@delete');
 
 /* routes for Locations Controller */	
 	Route::get('locations', 'LocationsController@index')->name('locations.index');
@@ -203,6 +280,17 @@ use Illuminate\Support\Facades\Mail;
 		
 	Route::any('permissions/edit/{rec_id}', 'PermissionsController@edit')->name('permissions.edit');	
 	Route::get('permissions/delete/{rec_id}', 'PermissionsController@delete');
+
+/* routes for Purchase_Items Controller */	
+	Route::get('purchase_items', 'Purchase_ItemsController@index')->name('purchase_items.index');
+	Route::get('purchase_items/index', 'Purchase_ItemsController@index')->name('purchase_items.index');
+	Route::get('purchase_items/index/{filter?}/{filtervalue?}', 'Purchase_ItemsController@index')->name('purchase_items.index');	
+	Route::get('purchase_items/view/{rec_id}', 'Purchase_ItemsController@view')->name('purchase_items.view');	
+	Route::get('purchase_items/add', 'Purchase_ItemsController@add')->name('purchase_items.add');
+	Route::post('purchase_items/store', 'Purchase_ItemsController@store')->name('purchase_items.store');
+		
+	Route::any('purchase_items/edit/{rec_id}', 'Purchase_ItemsController@edit')->name('purchase_items.edit');	
+	Route::get('purchase_items/delete/{rec_id}', 'Purchase_ItemsController@delete');
 
 /* routes for Resto_Menu_Order Controller */	
 	Route::get('resto_menu_order', 'Resto_Menu_OrderController@index')->name('resto_menu_order.index');
@@ -343,6 +431,17 @@ use Illuminate\Support\Facades\Mail;
 	Route::any('status_room/edit/{rec_id}', 'Status_RoomController@edit')->name('status_room.edit');	
 	Route::get('status_room/delete/{rec_id}', 'Status_RoomController@delete');
 
+/* routes for Supplier Controller */	
+	Route::get('supplier', 'SupplierController@index')->name('supplier.index');
+	Route::get('supplier/index', 'SupplierController@index')->name('supplier.index');
+	Route::get('supplier/index/{filter?}/{filtervalue?}', 'SupplierController@index')->name('supplier.index');	
+	Route::get('supplier/view/{rec_id}', 'SupplierController@view')->name('supplier.view');	
+	Route::get('supplier/add', 'SupplierController@add')->name('supplier.add');
+	Route::post('supplier/store', 'SupplierController@store')->name('supplier.store');
+		
+	Route::any('supplier/edit/{rec_id}', 'SupplierController@edit')->name('supplier.edit');	
+	Route::get('supplier/delete/{rec_id}', 'SupplierController@delete');
+
 /* routes for Table_Room_Resto Controller */	
 	Route::get('table_room_resto', 'Table_Room_RestoController@index')->name('table_room_resto.index');
 	Route::get('table_room_resto/index', 'Table_Room_RestoController@index')->name('table_room_resto.index');
@@ -353,6 +452,17 @@ use Illuminate\Support\Facades\Mail;
 		
 	Route::any('table_room_resto/edit/{rec_id}', 'Table_Room_RestoController@edit')->name('table_room_resto.edit');	
 	Route::get('table_room_resto/delete/{rec_id}', 'Table_Room_RestoController@delete');
+
+/* routes for Trans_Purchase Controller */	
+	Route::get('trans_purchase', 'Trans_PurchaseController@index')->name('trans_purchase.index');
+	Route::get('trans_purchase/index', 'Trans_PurchaseController@index')->name('trans_purchase.index');
+	Route::get('trans_purchase/index/{filter?}/{filtervalue?}', 'Trans_PurchaseController@index')->name('trans_purchase.index');	
+	Route::get('trans_purchase/view/{rec_id}', 'Trans_PurchaseController@view')->name('trans_purchase.view');	
+	Route::get('trans_purchase/add', 'Trans_PurchaseController@add')->name('trans_purchase.add');
+	Route::post('trans_purchase/store', 'Trans_PurchaseController@store')->name('trans_purchase.store');
+		
+	Route::any('trans_purchase/edit/{rec_id}', 'Trans_PurchaseController@edit')->name('trans_purchase.edit');	
+	Route::get('trans_purchase/delete/{rec_id}', 'Trans_PurchaseController@delete');
 
 /* routes for Transaction Controller */	
 	Route::get('transaction', 'TransactionController@index')->name('transaction.index');
@@ -365,6 +475,17 @@ use Illuminate\Support\Facades\Mail;
 		
 	Route::any('transaction/edit/{rec_id}', 'TransactionController@edit')->name('transaction.edit');	
 	Route::get('transaction/delete/{rec_id}', 'TransactionController@delete');
+
+/* routes for Units Controller */	
+	Route::get('units', 'UnitsController@index')->name('units.index');
+	Route::get('units/index', 'UnitsController@index')->name('units.index');
+	Route::get('units/index/{filter?}/{filtervalue?}', 'UnitsController@index')->name('units.index');	
+	Route::get('units/view/{rec_id}', 'UnitsController@view')->name('units.view');	
+	Route::get('units/add', 'UnitsController@add')->name('units.add');
+	Route::post('units/store', 'UnitsController@store')->name('units.store');
+		
+	Route::any('units/edit/{rec_id}', 'UnitsController@edit')->name('units.edit');	
+	Route::get('units/delete/{rec_id}', 'UnitsController@delete');
 
 /* routes for Users Controller */	
 	Route::get('users', 'UsersController@index')->name('users.index');
@@ -471,6 +592,36 @@ Route::get('componentsdata/details_transaction_room_id_option_list',  function(R
 	}
 );
 	
+Route::get('componentsdata/items_name_option_list',  function(Request $request){
+		$compModel = new App\Models\ComponentsData();
+		return $compModel->items_name_option_list($request);
+	}
+);
+	
+Route::get('componentsdata/units_option_list',  function(Request $request){
+		$compModel = new App\Models\ComponentsData();
+		return $compModel->units_option_list($request);
+	}
+);
+	
+Route::get('componentsdata/department_option_list',  function(Request $request){
+		$compModel = new App\Models\ComponentsData();
+		return $compModel->department_option_list($request);
+	}
+);
+	
+Route::get('componentsdata/job_title_option_list',  function(Request $request){
+		$compModel = new App\Models\ComponentsData();
+		return $compModel->job_title_option_list($request);
+	}
+);
+	
+Route::get('componentsdata/contract_status_option_list',  function(Request $request){
+		$compModel = new App\Models\ComponentsData();
+		return $compModel->contract_status_option_list($request);
+	}
+);
+	
 Route::get('componentsdata/permission_id_option_list',  function(Request $request){
 		$compModel = new App\Models\ComponentsData();
 		return $compModel->permission_id_option_list($request);
@@ -534,6 +685,12 @@ Route::get('componentsdata/payment_status_option_list',  function(Request $reque
 Route::get('componentsdata/floor_id_option_list',  function(Request $request){
 		$compModel = new App\Models\ComponentsData();
 		return $compModel->floor_id_option_list($request);
+	}
+);
+	
+Route::get('componentsdata/supplier_option_list',  function(Request $request){
+		$compModel = new App\Models\ComponentsData();
+		return $compModel->supplier_option_list($request);
 	}
 );
 	

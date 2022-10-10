@@ -71,6 +71,7 @@
                                                 <span class="custom-control-label"></span>
                                                 </label>
                                                 </th>
+                                                <th class="td-id" > Id</th>
                                                 <th class="td-code_dethk_stokin" > Code Dethk Stokin</th>
                                                 <th class="td-item" > Item</th>
                                                 <th class="td-qty" > Qty</th>
@@ -98,6 +99,9 @@
                                                     </label>
                                                 </td>
                                                 <!--PageComponentStart-->
+                                                <td class="td-id">
+                                                    <a href="<?php print_link("details_hk_stok_in/view/$data[id]") ?>"><?php echo $data['id']; ?></a>
+                                                </td>
                                                 <td class="td-code_dethk_stokin">
                                                     <?php echo  $data['code_dethk_stokin'] ; ?>
                                                 </td>
@@ -108,82 +112,86 @@
                                                     <?php echo  $data['qty'] ; ?>
                                                 </td>
                                                 <td class="td-conditions">
-                                                    <?php echo  $data['conditions'] ; ?>
-                                                </td>
-                                                <td class="td-locations">
-                                                    <?php echo  $data['locations'] ; ?>
-                                                </td>
-                                                <!--PageComponentEnd-->
-                                                <td class="td-btn">
-                                                    <a class="mx-1 btn btn-sm btn-primary has-tooltip "   title="Lihat" href="<?php print_link("details_hk_stok_in/view/$rec_id"); ?>">
-                                                    <i class="material-icons">visibility</i> View
+                                                    <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("conditions/view/$data[conditions]?subpage=1") ?>">
+                                                    <i class="material-icons">visibility</i> <?php echo $data['conditions_conditions_name'] ?>
                                                 </a>
-                                                <a class="mx-1 btn btn-sm btn-success has-tooltip "   title="Ubah" href="<?php print_link("details_hk_stok_in/edit/$rec_id"); ?>">
-                                                <i class="material-icons">edit</i> Edit
+                                            </td>
+                                            <td class="td-locations">
+                                                <a size="sm" class="btn btn-sm btn btn-secondary page-modal" href="<?php print_link("locations/view/$data[locations]?subpage=1") ?>">
+                                                <i class="material-icons">visibility</i> <?php echo $data['locations_locations_name'] ?>
                                             </a>
-                                            <a class="mx-1 btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="Yakin Mau Hapus ?...." data-display-style="modal" title="Hapus" href="<?php print_link("details_hk_stok_in/delete/$rec_id"); ?>">
-                                            <i class="material-icons">clear</i> Delete
+                                        </td>
+                                        <!--PageComponentEnd-->
+                                        <td class="td-btn">
+                                            <a class="mx-1 btn btn-sm btn-primary has-tooltip "   title="Lihat" href="<?php print_link("details_hk_stok_in/view/$rec_id"); ?>">
+                                            <i class="material-icons">visibility</i> View
                                         </a>
-                                    </td>
-                                </tr>
-                                <?php 
-                                    }
-                                ?>
-                                <!--endrecord-->
-                            </tbody>
-                            <tbody class="search-data"></tbody>
-                            <?php
-                                }
-                                else{
-                            ?>
-                            <tbody class="page-data">
-                                <tr>
-                                    <td class="bg-light text-center text-muted animated bounce p-3" colspan="1000">
-                                        <i class="material-icons">block</i> Tidak Ada Data
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <?php
-                                }
-                            ?>
-                        </table>
-                    </div>
+                                        <a class="mx-1 btn btn-sm btn-success has-tooltip "   title="Ubah" href="<?php print_link("details_hk_stok_in/edit/$rec_id"); ?>">
+                                        <i class="material-icons">edit</i> Edit
+                                    </a>
+                                    <a class="mx-1 btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="Yakin Mau Hapus ?...." data-display-style="modal" title="Hapus" href="<?php print_link("details_hk_stok_in/delete/$rec_id"); ?>">
+                                    <i class="material-icons">clear</i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                        <?php 
+                            }
+                        ?>
+                        <!--endrecord-->
+                    </tbody>
+                    <tbody class="search-data"></tbody>
                     <?php
-                        if($show_footer){
+                        }
+                        else{
                     ?>
-                    <div class="">
-                        <div class="row justify-content-center">    
-                            <div class="col-md-auto justify-content-center">    
-                                <div class="p-3 d-flex justify-content-between">    
-                                    <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("details_hk_stok_in/delete/{sel_ids}"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
-                                    <i class="material-icons">clear</i> Delete Selected
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col">   
-                                <?php
-                                    if($show_pagination == true){
-                                    $pager = new Pagination($total_records, $record_count);
-                                    $pager->show_page_count = false;
-                                    $pager->show_record_count = true;
-                                    $pager->show_page_limit =false;
-                                    $pager->limit = $limit;
-                                    $pager->show_page_number_list = true;
-                                    $pager->pager_link_range=5;
-                                    $pager->ajax_page = true;
-                                    $pager->render();
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                    </div>
+                    <tbody class="page-data">
+                        <tr>
+                            <td class="bg-light text-center text-muted animated bounce p-3" colspan="1000">
+                                <i class="material-icons">block</i> Tidak Ada Data
+                            </td>
+                        </tr>
+                    </tbody>
                     <?php
                         }
                     ?>
+                </table>
+            </div>
+            <?php
+                if($show_footer){
+            ?>
+            <div class="">
+                <div class="row justify-content-center">    
+                    <div class="col-md-auto justify-content-center">    
+                        <div class="p-3 d-flex justify-content-between">    
+                            <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("details_hk_stok_in/delete/{sel_ids}"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
+                            <i class="material-icons">clear</i> Delete Selected
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col">   
+                        <?php
+                            if($show_pagination == true){
+                            $pager = new Pagination($total_records, $record_count);
+                            $pager->show_page_count = false;
+                            $pager->show_record_count = true;
+                            $pager->show_page_limit =false;
+                            $pager->limit = $limit;
+                            $pager->show_page_number_list = true;
+                            $pager->pager_link_range=5;
+                            $pager->ajax_page = true;
+                            $pager->render();
+                            }
+                        ?>
+                    </div>
                 </div>
             </div>
+            <?php
+                }
+            ?>
         </div>
     </div>
+</div>
+</div>
 </div>
 </div>
 </div>

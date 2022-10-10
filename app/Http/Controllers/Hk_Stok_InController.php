@@ -5,7 +5,6 @@ use App\Http\Requests\Hk_Stok_InAddRequest;
 use App\Http\Requests\Hk_Stok_InEditRequest;
 use App\Models\Hk_Stok_In;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Exception;
 class Hk_Stok_InController extends Controller
 {
@@ -76,7 +75,7 @@ class Hk_Stok_InController extends Controller
 		}
 		$detailsHkStokInValidData = $detailsHkStokInValidator->valid();
 		$detailsHkStokInModeldata = array_values($detailsHkStokInValidData);
-		$modeldata['code_stok_in'] = "Stockin-".datetime_now();
+		$modeldata['code_stok_in'] = "Stockin-".random_num(10);
 		
 		//save Hk_Stok_In record
 		$record = Hk_Stok_In::create($modeldata);
@@ -89,16 +88,8 @@ class Hk_Stok_InController extends Controller
 		
 		//Save Details_Hk_Stok_In record
 		\App\Models\Details_Hk_Stok_In::insert($detailsHkStokInModeldata);
-		$this->afterAdd($record);
 		return $this->redirect("hk_stok_in", "Tambah Data Berhasil");
 	}
-    /**
-     * After new record created
-     * @param array $record // newly created record
-     */
-    private function afterAdd($record){
-        //enter statement here
-    }
 	
 
 	/**
@@ -130,16 +121,7 @@ class Hk_Stok_InController extends Controller
 		$query = Hk_Stok_In::query();
 		$query->whereIn("code_stok_in", $arr_id);
 		$query->delete();
-		$this->afterDelete($rec_id);
 		$redirectUrl = $request->redirect ?? url()->previous();
 		return $this->redirect($redirectUrl, "Hapus Data Berhasil");
 	}
-    /**
-     * After record deleted
-     * @param string $rec_id // deleted record id
-     */
-    private function afterDelete($rec_id){
-        //enter statement here
-        DB::table('details_hk_stok_in')->where('code_dethk_stokin', '=', $rec_id)->delete();
-    }
 }

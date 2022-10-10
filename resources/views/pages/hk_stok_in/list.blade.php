@@ -97,7 +97,7 @@
                                                 </td>
                                                 <!--PageComponentStart-->
                                                 <td class="td-code_stok_in">
-                                                    <?php echo  $data['code_stok_in'] ; ?>
+                                                    <a href="<?php print_link("hk_stok_in/view/$data[code_stok_in]") ?>"><?php echo $data['code_stok_in']; ?></a>
                                                 </td>
                                                 <td class="td-date">
                                                     <?php echo  $data['date'] ; ?>

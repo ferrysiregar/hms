@@ -47,6 +47,16 @@
                                     <!-- Table Body Start -->
                                     <div class="page-data">
                                         <!--PageComponentStart-->
+                                        <div class="border-top td-id p-2">
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <div class="text-muted"> Id</div>
+                                                    <div class="font-weight-bold">
+                                                        <?php echo  $data['id'] ; ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="border-top td-code_dethk_stokin p-2">
                                             <div class="row align-items-center">
                                                 <div class="col">

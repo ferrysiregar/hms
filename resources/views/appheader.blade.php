@@ -10,6 +10,7 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
+            {{ Html::render_menu(Menu::navbartopleft()  , "navbar-nav mr-auto" ) }}
         </div>
     </div>
 </div>

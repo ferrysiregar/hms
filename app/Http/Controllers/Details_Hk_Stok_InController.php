@@ -25,6 +25,8 @@ class Details_Hk_Stok_InController extends Controller
 			$search = trim($request->search);
 			Details_Hk_Stok_In::search($query, $search); // search table records
 		}
+		$query->join("conditions", "details_hk_stok_in.conditions", "=", "conditions.id");
+		$query->join("locations", "details_hk_stok_in.locations", "=", "locations.id");
 		$orderby = $request->orderby ?? "details_hk_stok_in.id";
 		$ordertype = $request->ordertype ?? "desc";
 		$query->orderBy($orderby, $ordertype);
@@ -65,16 +67,8 @@ class Details_Hk_Stok_InController extends Controller
 		$postdata = $request->input("row");
 		$modeldata = array_values($postdata);
 		Details_Hk_Stok_In::insert($modeldata);
-		$this->afterAdd($record);
 		return $this->redirect("details_hk_stok_in", "Tambah Data Berhasil");
 	}
-    /**
-     * After new record created
-     * @param array $record // newly created record
-     */
-    private function afterAdd($record){
-        //enter statement here
-    }
 	
 
 	/**
