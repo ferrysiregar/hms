@@ -18,6 +18,16 @@
             </div>
         </div>
     </div>
+    <div  class="mb-3" >
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-md-12 comp-grid" >
+                </div>
+                <div class="col-md-3 col-sm-4 comp-grid" >
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 @section('pagecss')

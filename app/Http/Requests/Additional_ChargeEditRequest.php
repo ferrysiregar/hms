@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RoomEditRequest extends FormRequest
+class Additional_ChargeEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,15 +25,8 @@ class RoomEditRequest extends FormRequest
 		
         return [
             
-				"room_name" => "filled|string",
-				"room_type_id" => "filled",
-				"room_facilities_id" => "filled",
-				"price_basic" => "filled|numeric",
-				"price_sales" => "filled|numeric",
-				"status_room_id" => "filled",
-				"photo_room_id" => "filled",
-				"adult" => "nullable|numeric",
-				"child" => "nullable|numeric",
+				"tax_charge" => "filled|numeric",
+				"service_charge" => "filled|numeric",
             
         ];
     }

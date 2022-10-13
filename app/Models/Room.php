@@ -28,7 +28,7 @@ class Room extends Model
      * @var array
      */
 	protected $fillable = [
-		'kode_room','room_name','room_type_id','room_facilities_id','price_basic','price_sales','status_room_id','photo_room_id'
+		'kode_room','room_name','room_type_id','room_facilities_id','price_basic','price_sales','status_room_id','photo_room_id','adult','child'
 	];
 	
 
@@ -77,7 +77,9 @@ class Room extends Model
 			"room.price_sales AS price_sales",
 			"room.status_room_id AS status_room_id",
 			"status_room.status_room AS status_room_status_room",
-			"room.photo_room_id AS photo_room_id" 
+			"room.photo_room_id AS photo_room_id",
+			"room.adult AS adult",
+			"room.child AS child" 
 		];
 	}
 	
@@ -100,7 +102,9 @@ class Room extends Model
 			"room.price_sales AS price_sales",
 			"room.status_room_id AS status_room_id",
 			"status_room.status_room AS status_room_status_room",
-			"room.photo_room_id AS photo_room_id" 
+			"room.photo_room_id AS photo_room_id",
+			"room.adult AS adult",
+			"room.child AS child" 
 		];
 	}
 	
@@ -120,7 +124,9 @@ class Room extends Model
 			"price_basic",
 			"price_sales",
 			"status_room_id",
-			"photo_room_id" 
+			"photo_room_id",
+			"adult",
+			"child" 
 		];
 	}
 	
@@ -140,7 +146,9 @@ class Room extends Model
 			"price_basic",
 			"price_sales",
 			"status_room_id",
-			"photo_room_id" 
+			"photo_room_id",
+			"adult",
+			"child" 
 		];
 	}
 	
@@ -160,7 +168,9 @@ class Room extends Model
 			"price_basic",
 			"price_sales",
 			"status_room_id",
-			"photo_room_id" 
+			"photo_room_id",
+			"adult",
+			"child" 
 		];
 	}
 }

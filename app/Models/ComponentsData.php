@@ -49,6 +49,32 @@ class ComponentsData{
 	
 
 	/**
+     * employee_name_option_list Model Action
+     * @return array
+     */
+	function employee_name_option_list(){
+		$sqltext = "SELECT  DISTINCT nik AS value,name AS label FROM employee";
+		$query_params = [];
+		$arr = DB::select(DB::raw($sqltext), $query_params);
+		return $arr;
+	}
+	
+
+	/**
+     * salary_employee_option_list Model Action
+     * @return array
+     */
+	function salary_employee_option_list($value = null){
+		$lookup_value = request()->lookup ?? $value;
+		$sqltext = "SELECT  DISTINCT salary AS value,salary AS label FROM employee WHERE nik=:lookup_employee_name" ;
+		$query_params = [];
+		$query_params['lookup_employee_name'] = $lookup_value;
+		$arr = DB::select(DB::raw($sqltext), $query_params);
+		return $arr;
+	}
+	
+
+	/**
      * room_id_option_list Model Action
      * @return array
      */

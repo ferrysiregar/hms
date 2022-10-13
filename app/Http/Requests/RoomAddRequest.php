@@ -32,6 +32,8 @@ class RoomAddRequest extends FormRequest
 				"price_sales" => "required|numeric",
 				"status_room_id" => "required",
 				"photo_room_id" => "required",
+				"adult" => "nullable|numeric",
+				"child" => "nullable|numeric",
             
         ];
     }

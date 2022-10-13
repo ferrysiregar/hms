@@ -134,6 +134,24 @@
 			'path' => 'agent',
 			'label' => "Agent", 
 			'icon' => '<i class="material-icons ">people</i>'
+		],
+		
+		[
+			'path' => 'additional_charge',
+			'label' => "Additional Charge", 
+			'icon' => '<i class="material-icons ">attach_money</i>'
+		],
+		
+		[
+			'path' => 'cashbon_employee',
+			'label' => "Cashbon Employee", 
+			'icon' => '<i class="material-icons">extension</i>'
+		],
+		
+		[
+			'path' => 'room_capacity',
+			'label' => "Room Capacity", 
+			'icon' => '<i class="material-icons">extension</i>'
 		]
 	] ;
 	}

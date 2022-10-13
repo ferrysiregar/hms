@@ -21,6 +21,17 @@ use Illuminate\Support\Facades\Mail;
 
 
 
+/* routes for Additional_Charge Controller */	
+	Route::get('additional_charge', 'Additional_ChargeController@index')->name('additional_charge.index');
+	Route::get('additional_charge/index', 'Additional_ChargeController@index')->name('additional_charge.index');
+	Route::get('additional_charge/index/{filter?}/{filtervalue?}', 'Additional_ChargeController@index')->name('additional_charge.index');	
+	Route::get('additional_charge/view/{rec_id}', 'Additional_ChargeController@view')->name('additional_charge.view');	
+	Route::get('additional_charge/add', 'Additional_ChargeController@add')->name('additional_charge.add');
+	Route::post('additional_charge/store', 'Additional_ChargeController@store')->name('additional_charge.store');
+		
+	Route::any('additional_charge/edit/{rec_id}', 'Additional_ChargeController@edit')->name('additional_charge.edit');	
+	Route::get('additional_charge/delete/{rec_id}', 'Additional_ChargeController@delete');
+
 /* routes for Agent Controller */	
 	Route::get('agent', 'AgentController@index')->name('agent.index');
 	Route::get('agent/index', 'AgentController@index')->name('agent.index');
@@ -46,6 +57,17 @@ use Illuminate\Support\Facades\Mail;
 	Route::get('booking/delete/{rec_id}', 'BookingController@delete');	
 	Route::get('booking/booking_calendar', 'BookingController@booking_calendar');
 	Route::get('booking/booking_calendar/{filter?}/{filtervalue?}', 'BookingController@booking_calendar');
+
+/* routes for Cashbon_Employee Controller */	
+	Route::get('cashbon_employee', 'Cashbon_EmployeeController@index')->name('cashbon_employee.index');
+	Route::get('cashbon_employee/index', 'Cashbon_EmployeeController@index')->name('cashbon_employee.index');
+	Route::get('cashbon_employee/index/{filter?}/{filtervalue?}', 'Cashbon_EmployeeController@index')->name('cashbon_employee.index');	
+	Route::get('cashbon_employee/view/{rec_id}', 'Cashbon_EmployeeController@view')->name('cashbon_employee.view');	
+	Route::get('cashbon_employee/add', 'Cashbon_EmployeeController@add')->name('cashbon_employee.add');
+	Route::post('cashbon_employee/store', 'Cashbon_EmployeeController@store')->name('cashbon_employee.store');
+		
+	Route::any('cashbon_employee/edit/{rec_id}', 'Cashbon_EmployeeController@edit')->name('cashbon_employee.edit');	
+	Route::get('cashbon_employee/delete/{rec_id}', 'Cashbon_EmployeeController@delete');
 
 /* routes for Conditions Controller */	
 	Route::get('conditions', 'ConditionsController@index')->name('conditions.index');
@@ -360,6 +382,17 @@ use Illuminate\Support\Facades\Mail;
 	Route::any('room/edit/{rec_id}', 'RoomController@edit')->name('room.edit');	
 	Route::get('room/delete/{rec_id}', 'RoomController@delete');
 
+/* routes for Room_Capacity Controller */	
+	Route::get('room_capacity', 'Room_CapacityController@index')->name('room_capacity.index');
+	Route::get('room_capacity/index', 'Room_CapacityController@index')->name('room_capacity.index');
+	Route::get('room_capacity/index/{filter?}/{filtervalue?}', 'Room_CapacityController@index')->name('room_capacity.index');	
+	Route::get('room_capacity/view/{rec_id}', 'Room_CapacityController@view')->name('room_capacity.view');	
+	Route::get('room_capacity/add', 'Room_CapacityController@add')->name('room_capacity.add');
+	Route::post('room_capacity/store', 'Room_CapacityController@store')->name('room_capacity.store');
+		
+	Route::any('room_capacity/edit/{rec_id}', 'Room_CapacityController@edit')->name('room_capacity.edit');	
+	Route::get('room_capacity/delete/{rec_id}', 'Room_CapacityController@delete');
+
 /* routes for Room_Facilities Controller */	
 	Route::get('room_facilities', 'Room_FacilitiesController@index')->name('room_facilities.index');
 	Route::get('room_facilities/index', 'Room_FacilitiesController@index')->name('room_facilities.index');
@@ -529,6 +562,18 @@ Route::get('componentsdata/agent_id_option_list',  function(Request $request){
 Route::get('componentsdata/payment_status_id_option_list',  function(Request $request){
 		$compModel = new App\Models\ComponentsData();
 		return $compModel->payment_status_id_option_list($request);
+	}
+);
+	
+Route::get('componentsdata/employee_name_option_list',  function(Request $request){
+		$compModel = new App\Models\ComponentsData();
+		return $compModel->employee_name_option_list($request);
+	}
+);
+	
+Route::get('componentsdata/salary_employee_option_list',  function(Request $request){
+		$compModel = new App\Models\ComponentsData();
+		return $compModel->salary_employee_option_list($request);
 	}
 );
 	
