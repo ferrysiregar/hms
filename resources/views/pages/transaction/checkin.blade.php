@@ -19,8 +19,8 @@
                         Check In <span class="h5 font-weight-normal">- Lengkapi Data Checkin</span>
                     </div>
                 </div>
-                <div class="col-md-auto">
-                    <button class="btn btn-primary">Tambah Tamu</button>
+                <div class="col-md-auto" style="display: flex;align-item:center">
+                    <button class="btn btn-primary"><i class="material-icons">people</i>&nbsp;&nbsp;Tambah Tamu</button>
                 </div>
             </div>
         </div>
@@ -162,10 +162,13 @@
     </div>
     <div class="row mt-5 ">
         <div class="col text-right">
-            <button class="btn btn-warning">
-                <i class="material-icons">date_range</i> TAMBAH ORDER
+            <button class="btn btn-warning flex align-item-center">
+                <i class="material-icons">shopping_cart</i> TAMBAH ORDER
             </button>
-            <button class="btn btn-primary">CHECKIN</button>
+
+
+            <button class="btn btn-primary" id="checkin">
+                <i class="material-icons">bedroom_child</i>CHECKIN</button>
             <hr>
         </div>
     </div>
@@ -182,6 +185,11 @@
         $("#sidebar").addClass("active");
         $("#main-content").addClass("active");
         $(document).ready(function() {
+            $("#checkin").click(() =>{
+                alert("Fitur simpan belum berfungsi");
+            })
+
+
             $('[name=guest]').select2({
                 theme: 'bootstrap4',
                 ajax: {
