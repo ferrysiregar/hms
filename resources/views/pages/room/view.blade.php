@@ -145,6 +145,26 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="border-top td-adult p-2">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-muted"> Adult</div>
+                                        <div class="font-weight-bold">
+                                            <?php echo  $data['adult'] ; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="border-top td-child p-2">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <div class="text-muted"> Child</div>
+                                        <div class="font-weight-bold">
+                                            <?php echo  $data['child'] ; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <!--PageComponentEnd-->
                             <div class="d-flex q-col-gutter-xs justify-btween">
                                 <a class="mx-1 btn btn-sm btn-success has-tooltip "   title="Ubah" href="<?php print_link("room/edit/$rec_id"); ?>">

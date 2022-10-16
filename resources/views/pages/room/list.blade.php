@@ -80,6 +80,8 @@
                                                 <th class="td-price_sales" > Price Sales</th>
                                                 <th class="td-status_room_id" > Status Room Id</th>
                                                 <th class="td-photo_room_id" > Photo Room Id</th>
+                                                <th class="td-adult" > Adult</th>
+                                                <th class="td-child" > Child</th>
                                                 <th class="td-" > </th>
                                                 <th class="td-btn"></th>
                                             </tr>
@@ -137,6 +139,12 @@
                                         <?php 
                                             Html :: page_img($data['photo_room_id'],50,50, "medium", "large", 1); 
                                         ?>
+                                    </td>
+                                    <td class="td-adult">
+                                        <?php echo  $data['adult'] ; ?>
+                                    </td>
+                                    <td class="td-child">
+                                        <?php echo  $data['child'] ; ?>
                                     </td>
                                     <td class="td-masterdetailbtn">
                                         <a data-page-id="room-detail-page" class="btn btn-sm btn-secondary open-master-detail-page" href="<?php print_link("room/masterdetail/$data[id]"); ?>">

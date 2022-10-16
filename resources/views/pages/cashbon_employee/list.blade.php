@@ -5,7 +5,7 @@
     $total_records = $records->total();
     $limit = $records->perPage();
     $record_count = count($records);
-    $pageTitle = "Details Transaction";
+    $pageTitle = "Cashbon Employee";
 ?>
 @extends($layout)
 @section('title', $pageTitle)
@@ -19,13 +19,13 @@
             <div class="row justify-content-between">
                 <div class="col-12 col-md-auto " >
                     <div class=" h5 font-weight-bold text-primary" >
-                        Details Transaction
+                        Cashbon Employee
                     </div>
                 </div>
                 <div class="col-md-auto " >
-                    <a  class="btn btn-primary btn-block" href="<?php print_link("details_transaction/add") ?>" >
+                    <a  class="btn btn-primary btn-block" href="<?php print_link("cashbon_employee/add") ?>" >
                     <i class="material-icons">add</i>                               
-                    Add New Details Transaction 
+                    Add New Cashbon Employee 
                 </a>
             </div>
             <div class="col-md-3 " >
@@ -49,12 +49,9 @@
     <div class="container-fluid">
         <div class="row ">
             <div class="col-md-12 comp-grid" >
-                @include("pages.details_transaction-list-page-calendar")
-            </div>
-            <div class="col-md-12 comp-grid" >
                 <?php Html::display_page_errors($errors); ?>
                 <div  class=" page-content" >
-                    <div id="details_transaction-list-records">
+                    <div id="cashbon_employee-list-records">
                         <div class="row">
                             <div class="col">
                                 <div id="page-main-content" class="table-responsive">
@@ -64,7 +61,7 @@
                                             <span class="font-weight-bold">Loading...</span>
                                         </div>
                                     </div>
-                                    <?php Html::page_bread_crumb("/details_transaction/", $field_name, $field_value); ?>
+                                    <?php Html::page_bread_crumb("/cashbon_employee/", $field_name, $field_value); ?>
                                     <table class="table table-hover table-striped table-sm text-left">
                                         <thead class="table-header ">
                                             <tr>
@@ -74,14 +71,13 @@
                                                 <span class="custom-control-label"></span>
                                                 </label>
                                                 </th>
-                                                <th class="td-code_details_transaction" > Code Details Transaction</th>
-                                                <th class="td-room_id" > Room Id</th>
-                                                <th class="td-price" > Price</th>
-                                                <th class="td-checkin_date" > Checkin Date</th>
-                                                <th class="td-checkin_time" > Checkin Time</th>
-                                                <th class="td-checkout_date" > Checkout Date</th>
-                                                <th class="td-checkout_time" > Checkout Time</th>
-                                                <th class="td-totals" > Totals</th>
+                                                <th class="td-date" > Date</th>
+                                                <th class="td-employee_name" > Employee Name</th>
+                                                <th class="td-salary_employee" > Salary Employee</th>
+                                                <th class="td-cashbon_value" > Cashbon Value</th>
+                                                <th class="td-calc_month_payment" > Calc Month Payment</th>
+                                                <th class="td-payment_per_month" > Payment Per Month</th>
+                                                <th class="td-cashbon_description" > Cashbon Description</th>
                                                 <th class="td-btn"></th>
                                             </tr>
                                         </thead>
@@ -104,39 +100,36 @@
                                                     </label>
                                                 </td>
                                                 <!--PageComponentStart-->
-                                                <td class="td-code_details_transaction">
-                                                    <?php echo  $data['code_details_transaction'] ; ?>
+                                                <td class="td-date">
+                                                    <?php echo  $data['date'] ; ?>
                                                 </td>
-                                                <td class="td-room_id">
-                                                    <?php echo  $data['room_id'] ; ?>
+                                                <td class="td-employee_name">
+                                                    <?php echo  $data['employee_name'] ; ?>
                                                 </td>
-                                                <td class="td-price">
-                                                    <?php echo  $data['price'] ; ?>
+                                                <td class="td-salary_employee">
+                                                    <?php echo  $data['salary_employee'] ; ?>
                                                 </td>
-                                                <td class="td-checkin_date">
-                                                    <?php echo  $data['checkin_date'] ; ?>
+                                                <td class="td-cashbon_value">
+                                                    <?php echo  $data['cashbon_value'] ; ?>
                                                 </td>
-                                                <td class="td-checkin_time">
-                                                    <?php echo  $data['checkin_time'] ; ?>
+                                                <td class="td-calc_month_payment">
+                                                    <?php echo  $data['calc_month_payment'] ; ?>
                                                 </td>
-                                                <td class="td-checkout_date">
-                                                    <?php echo  $data['checkout_date'] ; ?>
+                                                <td class="td-payment_per_month">
+                                                    <?php echo  $data['payment_per_month'] ; ?>
                                                 </td>
-                                                <td class="td-checkout_time">
-                                                    <?php echo  $data['checkout_time'] ; ?>
-                                                </td>
-                                                <td class="td-totals">
-                                                    <?php echo  $data['totals'] ; ?>
+                                                <td class="td-cashbon_description">
+                                                    <?php echo  $data['cashbon_description'] ; ?>
                                                 </td>
                                                 <!--PageComponentEnd-->
                                                 <td class="td-btn">
-                                                    <a class="mx-1 btn btn-sm btn-primary has-tooltip "   title="Lihat" href="<?php print_link("details_transaction/view/$rec_id"); ?>">
+                                                    <a class="mx-1 btn btn-sm btn-primary has-tooltip "   title="Lihat" href="<?php print_link("cashbon_employee/view/$rec_id"); ?>">
                                                     <i class="material-icons">visibility</i> View
                                                 </a>
-                                                <a class="mx-1 btn btn-sm btn-success has-tooltip "   title="Ubah" href="<?php print_link("details_transaction/edit/$rec_id"); ?>">
+                                                <a class="mx-1 btn btn-sm btn-success has-tooltip "   title="Ubah" href="<?php print_link("cashbon_employee/edit/$rec_id"); ?>">
                                                 <i class="material-icons">edit</i> Edit
                                             </a>
-                                            <a class="mx-1 btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="Yakin Mau Hapus ?...." data-display-style="modal" title="Hapus" href="<?php print_link("details_transaction/delete/$rec_id"); ?>">
+                                            <a class="mx-1 btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="Yakin Mau Hapus ?...." data-display-style="modal" title="Hapus" href="<?php print_link("cashbon_employee/delete/$rec_id"); ?>">
                                             <i class="material-icons">clear</i> Delete
                                         </a>
                                     </td>
@@ -170,7 +163,7 @@
                         <div class="row justify-content-center">    
                             <div class="col-md-auto justify-content-center">    
                                 <div class="p-3 d-flex justify-content-between">    
-                                    <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("details_transaction/delete/{sel_ids}"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
+                                    <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("cashbon_employee/delete/{sel_ids}"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
                                     <i class="material-icons">clear</i> Delete Selected
                                     </button>
                                 </div>

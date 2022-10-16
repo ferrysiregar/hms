@@ -5,7 +5,7 @@
     $total_records = $records->total();
     $limit = $records->perPage();
     $record_count = count($records);
-    $pageTitle = "Details Transaction";
+    $pageTitle = "Additional Charge";
 ?>
 @extends($layout)
 @section('title', $pageTitle)
@@ -19,13 +19,13 @@
             <div class="row justify-content-between">
                 <div class="col-12 col-md-auto " >
                     <div class=" h5 font-weight-bold text-primary" >
-                        Details Transaction
+                        Additional Charge
                     </div>
                 </div>
                 <div class="col-md-auto " >
-                    <a  class="btn btn-primary btn-block" href="<?php print_link("details_transaction/add") ?>" >
+                    <a  class="btn btn-primary btn-block" href="<?php print_link("additional_charge/add") ?>" >
                     <i class="material-icons">add</i>                               
-                    Add New Details Transaction 
+                    Add New Additional Charge 
                 </a>
             </div>
             <div class="col-md-3 " >
@@ -49,12 +49,9 @@
     <div class="container-fluid">
         <div class="row ">
             <div class="col-md-12 comp-grid" >
-                @include("pages.details_transaction-list-page-calendar")
-            </div>
-            <div class="col-md-12 comp-grid" >
                 <?php Html::display_page_errors($errors); ?>
                 <div  class=" page-content" >
-                    <div id="details_transaction-list-records">
+                    <div id="additional_charge-list-records">
                         <div class="row">
                             <div class="col">
                                 <div id="page-main-content" class="table-responsive">
@@ -64,7 +61,7 @@
                                             <span class="font-weight-bold">Loading...</span>
                                         </div>
                                     </div>
-                                    <?php Html::page_bread_crumb("/details_transaction/", $field_name, $field_value); ?>
+                                    <?php Html::page_bread_crumb("/additional_charge/", $field_name, $field_value); ?>
                                     <table class="table table-hover table-striped table-sm text-left">
                                         <thead class="table-header ">
                                             <tr>
@@ -74,14 +71,9 @@
                                                 <span class="custom-control-label"></span>
                                                 </label>
                                                 </th>
-                                                <th class="td-code_details_transaction" > Code Details Transaction</th>
-                                                <th class="td-room_id" > Room Id</th>
-                                                <th class="td-price" > Price</th>
-                                                <th class="td-checkin_date" > Checkin Date</th>
-                                                <th class="td-checkin_time" > Checkin Time</th>
-                                                <th class="td-checkout_date" > Checkout Date</th>
-                                                <th class="td-checkout_time" > Checkout Time</th>
-                                                <th class="td-totals" > Totals</th>
+                                                <th class="td-id" > Id</th>
+                                                <th class="td-tax_charge" > Tax Charge (%)</th>
+                                                <th class="td-service_charge" > Service Charge (%)</th>
                                                 <th class="td-btn"></th>
                                             </tr>
                                         </thead>
@@ -104,39 +96,24 @@
                                                     </label>
                                                 </td>
                                                 <!--PageComponentStart-->
-                                                <td class="td-code_details_transaction">
-                                                    <?php echo  $data['code_details_transaction'] ; ?>
+                                                <td class="td-id">
+                                                    <a href="<?php print_link("additional_charge/view/$data[id]") ?>"><?php echo $data['id']; ?></a>
                                                 </td>
-                                                <td class="td-room_id">
-                                                    <?php echo  $data['room_id'] ; ?>
+                                                <td class="td-tax_charge">
+                                                    <?php echo  $data['tax_charge'] ; ?>
                                                 </td>
-                                                <td class="td-price">
-                                                    <?php echo  $data['price'] ; ?>
-                                                </td>
-                                                <td class="td-checkin_date">
-                                                    <?php echo  $data['checkin_date'] ; ?>
-                                                </td>
-                                                <td class="td-checkin_time">
-                                                    <?php echo  $data['checkin_time'] ; ?>
-                                                </td>
-                                                <td class="td-checkout_date">
-                                                    <?php echo  $data['checkout_date'] ; ?>
-                                                </td>
-                                                <td class="td-checkout_time">
-                                                    <?php echo  $data['checkout_time'] ; ?>
-                                                </td>
-                                                <td class="td-totals">
-                                                    <?php echo  $data['totals'] ; ?>
+                                                <td class="td-service_charge">
+                                                    <?php echo  $data['service_charge'] ; ?>
                                                 </td>
                                                 <!--PageComponentEnd-->
                                                 <td class="td-btn">
-                                                    <a class="mx-1 btn btn-sm btn-primary has-tooltip "   title="Lihat" href="<?php print_link("details_transaction/view/$rec_id"); ?>">
+                                                    <a class="mx-1 btn btn-sm btn-primary has-tooltip "   title="Lihat" href="<?php print_link("additional_charge/view/$rec_id"); ?>">
                                                     <i class="material-icons">visibility</i> View
                                                 </a>
-                                                <a class="mx-1 btn btn-sm btn-success has-tooltip "   title="Ubah" href="<?php print_link("details_transaction/edit/$rec_id"); ?>">
+                                                <a class="mx-1 btn btn-sm btn-success has-tooltip "   title="Ubah" href="<?php print_link("additional_charge/edit/$rec_id"); ?>">
                                                 <i class="material-icons">edit</i> Edit
                                             </a>
-                                            <a class="mx-1 btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="Yakin Mau Hapus ?...." data-display-style="modal" title="Hapus" href="<?php print_link("details_transaction/delete/$rec_id"); ?>">
+                                            <a class="mx-1 btn btn-sm btn-danger has-tooltip record-delete-btn" data-prompt-msg="Yakin Mau Hapus ?...." data-display-style="modal" title="Hapus" href="<?php print_link("additional_charge/delete/$rec_id"); ?>">
                                             <i class="material-icons">clear</i> Delete
                                         </a>
                                     </td>
@@ -170,7 +147,7 @@
                         <div class="row justify-content-center">    
                             <div class="col-md-auto justify-content-center">    
                                 <div class="p-3 d-flex justify-content-between">    
-                                    <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("details_transaction/delete/{sel_ids}"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
+                                    <button data-prompt-msg="Are you sure you want to delete these records?" data-display-style="modal" data-url="<?php print_link("additional_charge/delete/{sel_ids}"); ?>" class="btn btn-sm btn-danger btn-delete-selected d-none">
                                     <i class="material-icons">clear</i> Delete Selected
                                     </button>
                                 </div>
