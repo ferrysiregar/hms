@@ -223,6 +223,9 @@
                         return `<button class="btn btn-primary btn-block" onclick="tambahPelanggan()">
                             Tambah Tamu Baru
                             </button>`;
+                    },
+                    searching: function(){
+                        return 'Mencari...'
                     }
                 },
                
