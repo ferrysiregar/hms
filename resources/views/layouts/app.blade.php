@@ -22,6 +22,7 @@
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet" />
     <script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/select2-bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/OverlayScrollbars.min.css') }}">
 
     @yield('pagecss')
     @yield('plugins')
@@ -170,6 +171,7 @@
     <script type="text/javascript" src="{{ asset('js/dropzone.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/page-scripts.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/select2/select2.full.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.overlayScrollbars.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/select2/i18n/id.js') }}"></script>
     @yield('pagejs')
 </body>

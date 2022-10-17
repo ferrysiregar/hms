@@ -162,7 +162,7 @@
     </div>
     <div class="row mt-5 ">
         <div class="col text-right">
-            <button class="btn btn-warning flex align-item-center">
+            <button class="btn btn-warning flex align-item-center" data-toggle="modal" data-target="#modal-order">
                 <i class="material-icons">shopping_cart</i> TAMBAH ORDER
             </button>
 
@@ -175,6 +175,7 @@
 </div>
 
 
+@include('pages.transaction.modal-show-product');
 @endsection
 
 @section('pagejs')
